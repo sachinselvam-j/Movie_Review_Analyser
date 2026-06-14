@@ -3,10 +3,12 @@ import pickle
 import spacy
 
 # Load spaCy model
-nlp = spacy.load(
-    "en_core_web_sm",
-    disable=["parser", "ner"]
-)
+import spacy
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    nlp = spacy.blank("en")
 
 # Load trained model
 model = pickle.load(open("model.pkl", "rb"))
